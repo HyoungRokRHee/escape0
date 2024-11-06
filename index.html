@@ -19,9 +19,9 @@
         img {
             max-width: 90%;
             height: auto;
+            margin-bottom: 10px;
         }
         button {
-            margin-top: 20px;
             padding: 10px 20px;
             font-size: 18px;
             cursor: pointer;
@@ -38,11 +38,12 @@
 <body>
 
     <img id="escapeImage" src="https://github.com/HyoungRokRHee/escape0/blob/main/escape0.png?raw=true" alt="첫 번째 이미지">
-    <button onclick="showNextImage()">확인</button>
+    <button id="confirmButton" onclick="showNextImage()">확인</button>
 
     <script>
         function showNextImage() {
             document.getElementById("escapeImage").src = "https://github.com/HyoungRokRHee/escape0/blob/main/escape0-1.png?raw=true";
+            document.getElementById("confirmButton").style.display = "none";
         }
     </script>
 
