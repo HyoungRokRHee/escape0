@@ -33,6 +33,18 @@
         button:hover {
             background-color: #666;
         }
+        #answerBox {
+            margin-top: 15px;
+            display: none;
+            text-align: center;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -40,10 +52,33 @@
     <img id="escapeImage" src="https://github.com/HyoungRokRHee/escape0/blob/main/escape0000.png?raw=true" alt="첫 번째 이미지">
     <button id="confirmButton" onclick="showNextImage()">확인</button>
 
+    <!-- 정답 입력창 -->
+    <div id="answerBox">
+        <input type="text" id="userAnswer" placeholder="정답을 입력하세요">
+        <button onclick="checkAnswer()">제출</button>
+        <p id="resultMessage"></p>
+    </div>
+
     <script>
         function showNextImage() {
-            document.getElementById("escapeImage").src = "https://github.com/HyoungRokRHee/escape0/blob/main/escape000-1.png?raw=true";
+            document.getElementById("escapeImage").src =
+                "https://github.com/HyoungRokRHee/escape0/blob/main/escape000-1.png?raw=true";
+
             document.getElementById("confirmButton").style.display = "none";
+            document.getElementById("answerBox").style.display = "block";
+        }
+
+        function checkAnswer() {
+            const answer = document.getElementById("userAnswer").value.trim().toLowerCase();
+            const message = document.getElementById("resultMessage");
+
+            if (answer === "m") {
+                // 정답 → 다음 페이지로 이동
+                window.location.href = "https://github.com/HyoungRokRHee/escape0/blob/main/escape000-2.png?raw=true";
+            } else {
+                message.textContent = "틀렸습니다!";
+                message.style.color = "red";
+            }
         }
     </script>
 
